@@ -65,12 +65,20 @@ zstyle ':omz:plugins:nvm' silent-autoload yes
 source $ZSH/oh-my-zsh.sh
 
 # maven
-export MAVEN_HOME=/Users/ByLondontun/env/apache-maven-3.9.6
+export MAVEN_HOME="$HOME/env/apache-maven-3.9.9"
 export PATH=$PATH:$MAVEN_HOME/bin
 
-
+# node版本管理
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# jdk版本管理
+export PATH="$HOME/.jenv/bin:$PATH" >> ~/.bash_profile
+eval "$(jenv init -)" >> ~/.bash_profile
+
+# 代理
+export HTTP_PROXY=http://127.0.0.1:7890
+export HTTPS_PROXY=http://127.0.0.1:7890
 
 ```
