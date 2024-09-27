@@ -50,28 +50,17 @@ ZSH_THEME="spaceship"
 # git clone https://github.com/agkozak/zsh-z $ZSH_CUSTOM/plugins/zsh-z
 plugins=(
   git
-  nvm
   zsh-autosuggestions
   zsh-syntax-highlighting
   zsh-z
 )
-
-# 插件nvm的配置,自动切换node版本
-zstyle ':omz:plugins:nvm' lazy yes
-zstyle ':omz:plugins:nvm' autoload yes
-zstyle ':omz:plugins:nvm' silent-autoload yes
 
 # https://ohmyz.sh/
 source $ZSH/oh-my-zsh.sh
 
 # maven
 export MAVEN_HOME="$HOME/env/apache-maven-3.9.9"
-export PATH=$PATH:$MAVEN_HOME/bin
-
-# node版本管理
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export PATH=$MAVEN_HOME/bin:$PATH
 
 # jdk版本管理
 export PATH="$HOME/.jenv/bin:$PATH" >> ~/.bash_profile
@@ -81,4 +70,34 @@ eval "$(jenv init -)" >> ~/.bash_profile
 export HTTP_PROXY=http://127.0.0.1:7890
 export HTTPS_PROXY=http://127.0.0.1:7890
 
+# pnpm
+export PNPM_HOME="/Users/ruanbw/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+# fnm node版本管理 $ fnm env --use-on-cd >> ~/.zshrc
+export PATH="/Users/ruanbw/.local/state/fnm_multishells/33580_1727423774832/bin":$PATH
+export FNM_NODE_DIST_MIRROR="https://nodejs.org/dist"
+export FNM_COREPACK_ENABLED="false"
+export FNM_ARCH="x64"
+export FNM_DIR="/Users/ruanbw/.local/share/fnm"
+export FNM_RESOLVE_ENGINES="false"
+export FNM_MULTISHELL_PATH="/Users/ruanbw/.local/state/fnm_multishells/33580_1727423774832"
+export FNM_LOGLEVEL="info"
+export FNM_VERSION_FILE_STRATEGY="local"
+autoload -U add-zsh-hook
+_fnm_autoload_hook () {
+    if [[ -f .node-version || -f .nvmrc ]]; then
+    fnm use --silent-if-unchanged
+fi
+
+}
+
+add-zsh-hook chpwd _fnm_autoload_hook \
+    && _fnm_autoload_hook
+
+rehash
 ```
