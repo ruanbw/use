@@ -104,4 +104,7 @@ add-zsh-hook chpwd _fnm_autoload_hook \
     && _fnm_autoload_hook
 
 rehash
+
+# atuin shell history
+# curl --proto '=https' --tlsv1.2 -LsSf https://setup.atuin.sh | sh
 ```
