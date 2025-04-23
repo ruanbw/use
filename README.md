@@ -66,10 +66,6 @@ source $ZSH/oh-my-zsh.sh
 export MAVEN_HOME="$HOME/env/apache-maven-3.9.9"
 export PATH=$MAVEN_HOME/bin:$PATH
 
-# jdk版本管理
-export PATH="$HOME/.jenv/bin:$PATH" >> ~/.bash_profile
-eval "$(jenv init -)" >> ~/.bash_profile
-
 # 代理
 export HTTP_PROXY=http://127.0.0.1:7890
 export HTTPS_PROXY=http://127.0.0.1:7890
