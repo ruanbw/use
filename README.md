@@ -35,6 +35,10 @@
 - [Applite](https://aerolite.dev/applite) brew 可视化
 - [Snipaste](https://snipaste.com/) 截图
 
+### 命令
+
+[详情](./command.md)
+
 ### Docker
 
 [详情](./docker.md)
