@@ -24,16 +24,22 @@
 - [IDEA](https://www.jetbrains.com/idea/) IDEA 编辑器
 - [Navicat](https://www.navicat.com/en/) Navicat 数据库
 - [SourceTree](https://www.sourcetreeapp.com/) Git 可视化
-- [Termius](https://www.termius.com/) Termius 终端
-- [Arc](https://arc.net/) Arc 浏览器
 - [Clashx Pro](https://en.clashx.org/) 科学上网
 - [Git](https://git-scm.com/) 版本控制
-- [Warp](https://www.warp.dev/) AI 终端
 - [brew](https://brew.sh/) Mac 包管理器
 - [nvm](https://github.com/nvm-sh/nvm) Node 版本管理
 - [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh) 命令行工具
 - [Applite](https://aerolite.dev/applite) brew 可视化
 - [Snipaste](https://snipaste.com/) 截图
+- [Yazi](https://yazi-rs.github.io/) Yazi 终端文件浏览
+- [ghostty](https://ghostty.org/) ghostty 终端
+- [cleanupbuddy](https://cleanupbuddy.app/) Mac键盘清理锁定
+- [IINA](https://iina.io/) 视频播放器
+- [Macs Fan Control](https://github.com/crystalidea/macs-fan-control) Mac风扇控制
+- [Mos](https://github.com/caldis/mos) Mac第三方鼠标平滑移动
+- [Pearcleaner](https://github.com/alienator88/Pearcleaner) Mac软件清理
+- [Rectangleapp](https://rectangleapp.com/) Mac分屏
+- [Swish](https://highlyopinionated.co/swish/) Mac软件窗口控制
 
 ### 命令
 
@@ -71,8 +77,10 @@ export MAVEN_HOME="$HOME/env/apache-maven-3.9.9"
 export PATH=$MAVEN_HOME/bin:$PATH
 
 # 代理
-export HTTP_PROXY=http://127.0.0.1:7890
-export HTTPS_PROXY=http://127.0.0.1:7890
+export http_proxy=http://127.0.0.1:7890
+export https_proxy=http://127.0.0.1:7890
+export HTTP_PROXY=$http_proxy
+export HTTPS_PROXY=$https_proxy
 
 # pnpm
 export PNPM_HOME="/Users/ruanbw/Library/pnpm"
@@ -105,6 +113,7 @@ add-zsh-hook chpwd _fnm_autoload_hook \
 
 rehash
 
-# atuin shell history
-# curl --proto '=https' --tlsv1.2 -LsSf https://setup.atuin.sh | sh
+. "$HOME/.atuin/bin/env"
+
+eval "$(atuin init zsh)"
 ```
