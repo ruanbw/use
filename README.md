@@ -52,26 +52,6 @@
 ### .zshrc
 
 ```sh
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
-
-# git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
-# ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
-ZSH_THEME="spaceship"
-
-# git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-# git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-# git clone https://github.com/agkozak/zsh-z $ZSH_CUSTOM/plugins/zsh-z
-plugins=(
-  git
-  zsh-autosuggestions
-  zsh-syntax-highlighting
-  zsh-z
-)
-
-# https://ohmyz.sh/
-source $ZSH/oh-my-zsh.sh
-
 # maven
 export MAVEN_HOME="$HOME/env/apache-maven-3.9.9"
 export PATH=$MAVEN_HOME/bin:$PATH
@@ -81,6 +61,8 @@ export http_proxy=http://127.0.0.1:7890
 export https_proxy=http://127.0.0.1:7890
 export HTTP_PROXY=$http_proxy
 export HTTPS_PROXY=$https_proxy
+export GLOBAL_AGENT_HTTP_PROXY=$http_proxy
+export GLOBAL_AGENT_HTTPS_PROXY=$https_proxy
 
 # pnpm
 export PNPM_HOME="/Users/ruanbw/Library/pnpm"
@@ -116,4 +98,25 @@ rehash
 . "$HOME/.atuin/bin/env"
 
 eval "$(atuin init zsh)"
+
+# 邮件stp服务秘钥
+export MAIL_PASSWORD='NX5Jr4KuvF8Eam39'
+___MY_VMOPTIONS_SHELL_FILE="${HOME}/.jetbrains.vmoptions.sh"; if [ -f "${___MY_VMOPTIONS_SHELL_FILE}" ]; then . "${___MY_VMOPTIONS_SHELL_FILE}"; fi
+
+
+# Added by Antigravity
+export PATH="/Users/ruanbw/.antigravity/antigravity/bin:$PATH"
+
+# opencode
+export PATH=/Users/ruanbw/.opencode/bin:$PATH
+
+# Android SDK 环境变量
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bi
+
+export PATH="/Users/ruanbw/env/flutter/bin:$PATH"
+
+eval "$(starship init zsh)"
 ```
