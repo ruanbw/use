@@ -118,5 +118,9 @@ export PATH=$PATH:$ANDROID_HOME/tools/bi
 
 export PATH="/Users/ruanbw/env/flutter/bin:$PATH"
 
+# starship 终端状态
 eval "$(starship init zsh)"
+
+# 自动补全
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 ```
