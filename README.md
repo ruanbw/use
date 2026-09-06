@@ -41,14 +41,6 @@
 - [Rectangleapp](https://rectangleapp.com/) Mac分屏
 - [Swish](https://highlyopinionated.co/swish/) Mac软件窗口控制
 
-### 命令
-
-[详情](./command.md)
-
-### Docker
-
-[详情](./docker.md)
-
 ### .zshrc
 
 ```sh
