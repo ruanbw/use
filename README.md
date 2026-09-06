@@ -5,31 +5,31 @@
 
 #### 扩展
 
-- [DotENV](https://marketplace.visualstudio.com/items?itemName=mikestead.dotenv) `.env`文件高亮、提示、格式化
+- [nginx-conf](https://marketplace.visualstudio.com/items?itemName=ahmadalli.vscode-nginx-conf) Nginx 配置高亮
 - [Vue - Official](https://marketplace.visualstudio.com/items?itemName=Vue.volar) Vue高亮、格式化、代码提示
-- [UnoCss](https://marketplace.visualstudio.com/items?itemName=antfu.unocss) UnoCSS高亮、格式化
+- [Vue VSCode Snippets](https://marketplace.visualstudio.com/items?itemName=sdras.vue-vscode-snippets) Vue 代码片段
+- [Nuxtr](https://marketplace.visualstudio.com/items?itemName=nuxtr.nuxtr-vscode) Nuxt 项目管理
+- [Vitest Explorer](https://marketplace.visualstudio.com/items?itemName=vitest.explorer) Vitest 测试面板
+- [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.liveserver) 本地静态服务器
 - [Vitesse Theme](https://marketplace.visualstudio.com/items?itemName=antfu.theme-vitesse) VsCode主题
-- [TailwindCSS](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) TailwindCSS高亮、提示
-- [Iconify IntelliSense](https://marketplace.visualstudio.com/items?itemName=antfu.iconify) Iconify 图标
-- [i18n Ally](https://marketplace.visualstudio.com/items?itemName=Lokalise.i18n-ally) i18n 翻译、国际化
-- [Goto definition alias](https://marketplace.visualstudio.com/items?itemName=antfu.goto-alias) 跳转到定义
 - [Catppuccin Perfect Icons](https://marketplace.visualstudio.com/items?itemName=thang-nm.catppuccin-perfect-icons) VsCode 图标 Catppuccin
 
 [settings.json 设置](./vscode/settings.json)
 
 ### 软件
 
+- [Clash Verge](https://www.clashverge.dev/) 科学上网
 - [Docker Desktop](https://www.docker.com/products/docker-desktop) Docker 可视化
 - [VsCode](https://code.visualstudio.com/) VsCode 编辑器
+- [Sublime Text](https://www.sublimetext.com/) 轻量编辑器
 - [IDEA](https://www.jetbrains.com/idea/) IDEA 编辑器
+- [Xcode](https://developer.apple.com/xcode/) iOS/macOS 开发
 - [Navicat](https://www.navicat.com/en/) Navicat 数据库
 - [SourceTree](https://www.sourcetreeapp.com/) Git 可视化
-- [Clashx Pro](https://en.clashx.org/) 科学上网
+- [SwitchHosts](https://github.com/oldj/SwitchHosts) hosts 管理
 - [Git](https://git-scm.com/) 版本控制
 - [brew](https://brew.sh/) Mac 包管理器
-- [nvm](https://github.com/nvm-sh/nvm) Node 版本管理
-- [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh) 命令行工具
-- [Applite](https://aerolite.dev/applite) brew 可视化
+- [fnm](https://github.com/Schniz/fnm) Node 版本管理
 - [Snipaste](https://snipaste.com/) 截图
 - [Yazi](https://yazi-rs.github.io/) Yazi 终端文件浏览
 - [ghostty](https://ghostty.org/) ghostty 终端
@@ -41,6 +41,21 @@
 - [Rectangleapp](https://rectangleapp.com/) Mac分屏
 - [Swish](https://highlyopinionated.co/swish/) Mac软件窗口控制
 
+### CLI 工具
+
+- [starship](https://starship.rs/) 终端提示符
+- [atuin](https://atuin.sh/) shell 历史搜索、同步
+- [gh](https://cli.github.com/) GitHub CLI
+- [fd](https://github.com/sharkdp/fd) 文件查找
+- [ripgrep](https://github.com/BurntSushi/ripgrep) 内容搜索
+- [fzf](https://github.com/junegunn/fzf) 模糊搜索
+- [zoxide](https://github.com/ajeetdsouza/zoxide) 目录跳转
+- [jq](https://jqlang.github.io/jq/) JSON 处理
+- [neovim](https://neovim.io/) 编辑器
+- [bun](https://bun.sh/) JS 运行时、包管理
+- [uv](https://docs.astral.sh/uv/) Python 包管理
+- [ffmpeg](https://ffmpeg.org/) 音视频处理
+
 ### .zshrc
 
 ```sh
@@ -48,32 +63,15 @@
 export MAVEN_HOME="$HOME/env/apache-maven-3.9.9"
 export PATH=$MAVEN_HOME/bin:$PATH
 
-# 代理
-export http_proxy=http://127.0.0.1:7890
-export https_proxy=http://127.0.0.1:7890
-export HTTP_PROXY=$http_proxy
-export HTTPS_PROXY=$https_proxy
-export GLOBAL_AGENT_HTTP_PROXY=$http_proxy
-export GLOBAL_AGENT_HTTPS_PROXY=$https_proxy
-
-# pnpm
-export PNPM_HOME="/Users/ruanbw/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
-
 # fnm node版本管理 $ fnm env --use-on-cd >> ~/.zshrc
-export PATH="/Users/ruanbw/.local/state/fnm_multishells/33580_1727423774832/bin":$PATH
 export FNM_NODE_DIST_MIRROR="https://nodejs.org/dist"
 export FNM_COREPACK_ENABLED="false"
 export FNM_ARCH="x64"
-export FNM_DIR="/Users/ruanbw/.local/share/fnm"
+export FNM_DIR="$HOME/.local/share/fnm"
 export FNM_RESOLVE_ENGINES="false"
-export FNM_MULTISHELL_PATH="/Users/ruanbw/.local/state/fnm_multishells/33580_1727423774832"
 export FNM_LOGLEVEL="info"
 export FNM_VERSION_FILE_STRATEGY="local"
+eval "$(fnm env --use-on-cd)"
 autoload -U add-zsh-hook
 _fnm_autoload_hook () {
     if [[ -f .node-version || -f .nvmrc ]]; then
@@ -91,28 +89,18 @@ rehash
 
 eval "$(atuin init zsh)"
 
-# 邮件stp服务秘钥
-export MAIL_PASSWORD='NX5Jr4KuvF8Eam39'
-___MY_VMOPTIONS_SHELL_FILE="${HOME}/.jetbrains.vmoptions.sh"; if [ -f "${___MY_VMOPTIONS_SHELL_FILE}" ]; then . "${___MY_VMOPTIONS_SHELL_FILE}"; fi
-
-
-# Added by Antigravity
-export PATH="/Users/ruanbw/.antigravity/antigravity/bin:$PATH"
-
-# opencode
-export PATH=/Users/ruanbw/.opencode/bin:$PATH
-
-# Android SDK 环境变量
-export ANDROID_HOME=$HOME/Library/Android/sdk
-export PATH=$PATH:$ANDROID_HOME/platform-tools
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/tools/bi
-
-export PATH="/Users/ruanbw/env/flutter/bin:$PATH"
-
 # starship 终端状态
 eval "$(starship init zsh)"
 
 # 自动补全
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# proxy
+export NODE_USE_ENV_PROXY=1
+export HTTP_PROXY=http://127.0.0.1:7890
+export HTTPS_PROXY=http://127.0.0.1:7890
+export NO_PROXY=127.0.0.1,localhost
+
+# oh-my-pi (omp)
+export PATH="$HOME/.bun/bin:$PATH"
 ```
